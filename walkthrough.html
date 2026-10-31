@@ -1,55 +1,40 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cloud.typenetwork.com/projects/5433/fontface.css" />
-    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/css/orangeline.min.css" />
+    <!-- CSS：样式与字体全部本地化，不依赖境外 CDN -->
+    <link rel="stylesheet" href="vendor/orangeline.min.css" />
     <!-- /CSS -->
 
     <!-- FAVICONS -->
-    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/favicons/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/favicons/manifest.json">
-    <link rel="mask-icon" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="vendor/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="vendor/favicon-32x32.png" sizes="32x32">
     <meta name="theme-color" content="#ffffff">
     <!-- /FAVICONS -->
 
-    <title>The SQL Murder Mystery: Detailed Walkthrough</title>
+    <title>SQL 谋杀之谜：完整图文教程</title>
     <!-- Meta -->
-    <meta name="keywords" content="SQL, databases, game, fun">
-    <meta name="description" content="Use SQL queries to solve the murder mystery. Suitable for beginners or experienced SQL sleuths.">
+    <meta name="keywords" content="SQL, 数据库, 游戏, 中文版">
+    <meta name="description" content="用 SQL 查询破解一起谋杀案。新手和老练的 SQL 侦探都能上手。">
     <!-- /Meta -->
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="SQL Murder Mystery" />
-    <meta property="og:description" content="Use SQL queries to solve the murder mystery. Suitable for beginners or experienced SQL sleuths." />
-    <meta property="og:image" content="http://mystery.knightlab.com/174092-clue-illustration.png" />
-    <meta property="og:url" content="http://mystery.knightlab.com/walkthrough.html" />
-    <meta property="og:site_name" content="Knight Lab's SQL Murder Mystery" />
-    <meta property="fb:app_id" content="2361935160801585" />
+    <meta property="og:title" content="SQL 谋杀之谜" />
+    <meta property="og:description" content="用 SQL 查询破解一起谋杀案。新手和老练的 SQL 侦探都能上手。" />
+    <meta property="og:image" content="174092-clue-illustration.png" />
+    <meta property="og:url" content="https://occam-7.github.io/sql-mysteries/walkthrough.html" />
+    <meta property="og:site_name" content="SQL 谋杀之谜（中文版）" />
 
     <!-- /Open Graph -->
 
-    <!-- Twitter Card -->
-    <meta name="twitter:title" content="Knight Lab's SQL Murder Mystery">
-    <meta name="twitter:description" content="Use SQL queries to solve the murder mystery. Suitable for beginners or experienced SQL sleuths.">
-    <meta name="twitter:image" content="http://mystery.knightlab.com/174092-clue-illustration.png">
-    <meta name="twitter:site" content="@knightlab">
-    <!-- /Twitter Card -->
-
-    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css'>
+    <link rel="stylesheet" href="vendor/codemirror.min.css">
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/neat.css" />
 
-    <script src="https://unpkg.com/@webcomponents/custom-elements@1.2.0/custom-elements.min.js"></script>
     <script src="scripts/codemirror.js"></script>
     <script src="scripts/codemirrorsql.js"></script>
     <script src="scripts/autorefresh.js"></script>
@@ -57,17 +42,6 @@
     <script>
         window.onload = () => loadData('sql-murder-mystery.db');
     </script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8F4WPDMPL5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8F4WPDMPL5');
-</script>
-    <title>The SQL Murder Mystery</title>
 </head>
 
 <body>
@@ -75,7 +49,7 @@
         <ul>
             <li class="logo">
                 <a href="http://knightlab.com">
-                    <img src="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/knightlab-dark.png" />
+                    <img src="vendor/knightlab-dark.png" />
                 </a>
             </li>
         </ul>
@@ -86,36 +60,34 @@
         </div>
         <ul class="nav-right navbar-nav">
 
+            <li><a class="button button-dark button-small-tablet button-active" href="walkthrough.html">图文教程</a></li>
 
-            <li><a class="button button-dark button-small-tablet  button-active" href="https://knightlab.northwestern.edu/projects/">Projects</a></li>
+            <li><a class="button button-dark button-small-tablet" href="https://mystery.knightlab.com/walkthrough.html">英文原版</a></li>
 
-            <li><a class="button button-dark button-small-tablet  " href="https://studio.knightlab.com/">Studio</a></li>
+            <li><a class="button button-dark button-small-tablet" href="https://knightlab.northwestern.edu/projects/">项目</a></li>
 
-            <li><a class="button button-dark button-small-tablet  " href="https://localnewsinitiative.northwestern.edu/">Local
-          News</a></li>
-
-            <li><a class="button button-dark button-small-tablet  " href="https://knightlab.northwestern.edu/posts/">Posts</a>
+            <li><a class="button button-dark button-small-tablet" href="https://knightlab.northwestern.edu/posts/">文章</a>
             </li>
 
-            <li><a class="button button-dark button-small-tablet  " href="https://knightlab.northwestern.edu/community/">Community</a></li>
+            <li><a class="button button-dark button-small-tablet" href="https://github.com/NUKnightLab/sql-mysteries">源码</a></li>
 
         </ul>
     </nav>
 
     <header class="header-product">
         <h1 class="product-logo product-logo-large">
-            SQL Murder Mystery
+            SQL 谋杀之谜
         </h1>
-        <h2 class="product-tagline">Can you find out whodunnit?</h2>
+        <h2 class="product-tagline">你能查出凶手是谁吗？</h2>
     </header>
 
     <div class="container">
 
         <div id="intro" class="grid">
             <div class="grid-item">
-                <img src="174092-clue-illustration.png" class="img-rounded" alt="A decorative illustration of a detective looking at an evidence board.">
+                <img src="174092-clue-illustration.png" class="img-rounded" alt="一幅装饰插画：侦探正在查看案情线索板。">
                 <p>
-                    There's been a Murder in SQL City! The SQL Murder Mystery is designed to be both a self-directed lesson to learn SQL concepts and commands and a fun game for experienced SQL users to solve an intriguing crime.
+                    SQL 城出人命了！《SQL 谋杀之谜》既是一门自学 SQL 概念与命令的课程，也是给熟练 SQL 玩家准备的推理游戏——一桩耐人寻味的凶案等着你。
                 </p>
 
             </div>
@@ -123,11 +95,9 @@
 
         <div class="grid">
             <div class="grid-item">
-                <h2>Walkthrough for SQL Beginners</h2>
+                <h2>给 SQL 新手的图文教程</h2>
                 <p>
-                    If you're comfortable with SQL, you can <a href="index.html#experienced">skip these explanations</a> and put your skills to the test! Below we introduce some basic SQL concepts, and just enough detail to solve the murder. If you'd
-                    like a more complete introduction to SQL, try <a href="https://selectstarsql.com/">Select
-            Star SQL.</a>
+                    如果你 SQL 用得顺手，可以<a href="index.html#experienced">跳过这些讲解</a>，直接上机试试。下面我们会介绍几个基础 SQL 概念，以及刚好够你破案的那点细节。想系统入门 SQL，可以看 <a href="https://selectstarsql.com/">Select Star SQL</a>。
                 </p>
             </div>
         </div>
@@ -135,12 +105,10 @@
         <div class="grid">
             <div class="grid-item">
                 <p>
-                    A crime has taken place and the detective needs your help. The detective gave you the crime scene report, but you somehow lost it. You vaguely remember that the crime was a <strong>​murder​</strong> that occurred sometime on ​<strong>Jan.15, 2018​</strong>                    and that it took place in ​<strong>SQL City​</strong>. Start by retrieving the corresponding crime scene report from the police department’s database.
+                    一起凶案发生了，警探需要你的帮助。警探把案情报告交给了你，你却不知怎么把它弄丢了。你隐约记得那是一起<strong>谋杀案</strong>，发生在 <strong>2018 年 1 月 15 日</strong>，地点在 <strong>SQL 城</strong>。先到警局数据库里把对应的案情报告调出来。
                 </p>
                 <p>
-                    All the clues to this mystery are buried in a huge database, and you need to use SQL to navigate through this vast network of information. Your first step to solving the mystery is to retrieve the corresponding crime scene report from the police department’s
-                    database. Below we'll explain from a high level the commands you need to know; whenever you are ready, you can start adapting the examples to create your own SQL commands in search of clues -- you can run any SQL in any of the code
-                    boxes, no matter what was in the box when you started.
+                    破案的所有线索都埋在一个庞大的数据库里，你得靠 SQL 在这张巨大的信息网里找路。第一步是从警局数据库里取出那份对应的案情报告。下面我们会在较高的层面上解释你需要知道的命令；随时准备好，就可以动手改写示例、拼出自己的 SQL 命令去搜线索了——任何一个代码框里都可以运行任意 SQL，不管框里原来写的是什么。
                 </p>
             </div>
         </div>
@@ -148,68 +116,61 @@
 
         <div class="grid">
             <div class="grid-item">
-                <h2>Some Definitions</h2>
-                <h3>What is SQL?</h3>
+                <h2>先搞清楚几个概念</h2>
+                <h3>SQL 是什么？</h3>
                 <p>
-                    SQL, which stands for Structured Query Language, is a way to interact with relational databases and tables in a way that allows us humans to glean specific, meaningful information.
+                    SQL 是 Structured Query Language（结构化查询语言）的缩写，它是与关系型数据库和表打交道的方式，能让我们从中提炼出具体而有意义的信息。
                 </p>
 
-                <h3>Wait, what is a relational database?</h3>
-                <p>There's no single definition for the word <em>database</em>. In general, databases are systems for managing information. Databases can have varying amounts of structure imposed on the data. When the data is more structured, it can help
-                    people and computers work with the data more efficiently.
+                <h3>等等，关系型数据库又是什么？</h3>
+                <p>「数据库」这个词没有唯一的标准定义。大体上说，数据库就是管理信息的系统。不同数据库对数据施加的结构程度不一样；数据结构化得越好，人和计算机就越能高效地处理这些数据。
                 </p>
-                <p>Relational databases are probably the best known kind of database. At their heart, relational databases are made up of <em>tables</em>, which are a lot like spreadsheets. Each column in the table has a name and a data type (text, number,
-                    etc.), and each row in the table is a specific instance of whatever the table is "about." The "relational" part comes with specific rules about how to connect data between different tables.
+                <p>关系型数据库大概是最出名的一类。它的核心是<em>表</em>（table），很像电子表格：每一列有列名和数据类型（文本、数字等），每一行则是这张表「关于」的某个具体实例。所谓「关系型」，指的是表与表之间的数据如何连接——这部分有一套专门的规则。
                 </p>
 
-                <h3>What is an ERD?</h3>
+                <h3>ERD 是什么？</h3>
                 <p>
-                    ERD, which stands for Entity Relationship Diagram, is a visual representation of the relationships among all relevant tables within a database. You can find the ERD for our SQL Murder Mystery database below. The diagram shows that each table has a name
-                    (top of the box, in bold), a list of column names (on the left) and their corresponding data types (on the right, in all caps). There are also some gold key icons, blue arrow icons and gray arrows on the ERD. A gold key indicates that
-                    the column is the ​primary key​ of the corresponding table, and a blue arrow indicates that the column is the ​foreign key​ of the corresponding table.
+                    ERD 是 Entity Relationship Diagram（实体关系图）的缩写，用图形表示一个数据库里各张相关表之间的关系。下面就是本数据库的 ERD。图中每个框顶部是表名（加粗），左边是列名，右边是对应的数据类型（全大写）。图上还画了金色钥匙图标、蓝色箭头和灰色箭头：金色钥匙表示该列是所在表的<strong>主键</strong>（primary key），蓝色箭头表示该列是所在表的<strong>外键</strong>（foreign key）。
                     <dl>
                         <dt>
-              Primary Key​:
+              主键：
             </dt>
                         <dd>
-                            a unique identifier for each row in a table.
+                            表中每一行的唯一标识。
                         </dd>
                         <dt>
-              Foreign Key​:
+              外键：
             </dt>
                         <dd>
-                            used to reference data in one table to those in another table.
+                            用于引用另一张表中数据的字段。
                         </dd>
                     </dl>
-                    If two tables are related, the matching columns, i.e. the common identifiers of the two tables, are connected by a gray arrow in the diagram.
+                    两张表如果相关，它们对应的匹配列（也就是共同的标识）在图上会用灰色箭头连起来。
                 </p>
-                <p>Here is the ERD for our database:
+                <p>下面是本数据库的 ERD：
                 </p>
-                <img src="schema.png" width='1002' height='491'>
+                <img src="schema.png" width='1002' height='491' alt="SQL 谋杀之谜数据库的结构图">
             </div>
         </div>
 
         <div class="grid">
             <div class="grid-item">
                 <h2>
-                    What is a query?
+                    什么是查询？
                 </h2>
-                <p>If you were to look at the data in this database, you would see that the tables are huge! There are so many data points; it simply isn’t possible to go through the tables row by row to find the information we need. What are we supposed
-                    to do?</p>
+                <p>要是直接去看数据库里的数据，你会发现表大得吓人：数据点实在太多，靠一行行翻是翻不出需要的信息的。那该怎么办？</p>
                 <p>
-                    This is where queries come in. Queries are statements we construct to get data from the database. Queries read like natural English (for the most part). Let's try a few queries against our database. For each of the boxes below, click the "run" to "execute"
-                    the query in the box. You can edit the queries right here on the page to explore further. (Note that SQL commands are not case-sensitive, but it's conventional to capitalize them for readability. You can also use new lines and white
-                    space as you like to format the command for readability. Most database systems require you to end a query with a semicolon (';') although the system for running them in this web page is more forgiving.)
+                    这就是查询（query）的用处。查询是我们为了从数据库取数据而构造的语句，读起来大体像自然英语。拿本数据库练几条吧。下面每个框都可以点「运行」来执行框里的查询，也可以直接在页面上改，继续探索。（SQL 命令不区分大小写，但习惯上把关键字写成大写，读起来更清楚。换行和空格也可以随意用，让命令更好读。多数数据库系统要求语句以分号「;」结尾，不过这个网页里的执行器比较宽容。）
                 </p>
-                <sql-exercise data-question="Just how many people are in this database?" data-comment="Don't worry about exactly what this means, but know that you can change 'person' to any other table from the ERD to learn how many rows that table has.  Try it!" data-default-text="SELECT count(*)
+                <sql-exercise data-question="这个数据库里到底有多少人？" data-comment="不用纠结这个数字具体意味着什么，只要知道：你可以把 'person' 换成 ERD 上的任何一张表，来数出那张表有多少行。试试看！" data-default-text="SELECT count(*)
 FROM person;"></sql-exercise>
 
 
-                <sql-exercise data-question="What do we know about those people?" data-comment="If you want all the data for each row in a table, use '*' after 'SELECT'.  As you just learned, there are thousands of people, so rather than see all of them, we'll limit the results to just the first 10.  Run this, then change the table name or limit number and see what happens."
+                <sql-exercise data-question="关于这些人，我们都能知道什么？" data-comment="想看表里每一行的全部数据，就在 'SELECT' 后面写 '*'。如你刚学到的，这里有几千个人，所以与其全看一遍，不如只看前 10 条。跑完这条，再改改表名或 LIMIT 后面的数字，看看会发生什么。"
                     data-default-text="SELECT * FROM person LIMIT 10;"></sql-exercise>
 
 
-                <sql-exercise data-question="What are possible values for a column?" data-comment='When working with data, always see if you can find documentation that explains the database structure (like the ERD) and valid values. But sometimes that’s not available. Here we show how the DISTINCT keyword can give you a quick look at which values are in the database. After you run it, delete the word DISTINCT and run it again. See the difference? (After you try that, you may want to click the "reset" button and run one more time before you continue.)'
+                <sql-exercise data-question="某一列可能有哪些取值？" data-comment='处理数据时，先找找有没有解释数据库结构和合法取值的文档（比如 ERD），但有时这些文档并不存在。这里演示 DISTINCT 关键字怎么让你快速看到数据库里都有哪些取值。跑完之后，把 DISTINCT 删掉再跑一次，看出差别了吗？（试过之后，你可能想点「重置」按钮恢复原样，再跑一次，然后继续往下学。）'
                     data-default-text="SELECT DISTINCT type FROM crime_scene_report;"></sql-exercise>
 
             </div>
@@ -217,88 +178,83 @@ FROM person;"></sql-exercise>
 
         <div class="grid">
             <div class="grid-item">
-                <h3>What elements does a SQL query have?</h3>
-                <p>A SQL query can contain:
+                <h3>一条 SQL 查询由哪些元素组成？</h3>
+                <p>一条 SQL 查询可以包含：
                     <ul>
-                        <li>SQL keywords (like the ​SELECT​ and ​FROM​ above)</li>
-                        <li>Column names (like the ​name​ column above)</li>
-                        <li>Table names (like the ​person​ table above)</li>
-                        <li>Wildcard characters (such as ​<code>%</code>)</li>
-                        <li>Functions</li>
-                        <li>Specific filtering criteria</li>
-                        <li>Etc</li>
+                        <li>SQL 关键字（比如上面的 SELECT 和 FROM）</li>
+                        <li>列名（比如上面的 name 列）</li>
+                        <li>表名（比如上面的 person 表）</li>
+                        <li>通配符（比如 <code>%</code>）</li>
+                        <li>函数</li>
+                        <li>具体的筛选条件</li>
+                        <li>等等</li>
                     </ul>
                 </p>
 
-                <h4 id="sql-keywords">SQL Keywords</h4>
+                <h4 id="sql-keywords">SQL 关键字</h4>
                 <p>
-                    SQL keywords are used to specify actions in your queries. SQL keywords are not case sensitive, but we suggest using all caps for SQL keywords so that you can easily set them apart from the rest of the query. Some frequently used keywords are:
+                    SQL 关键字用来在查询中指定动作。它们不区分大小写，但我们建议关键字全用大写，这样跟查询的其余部分一眼就能区分开。几个常用的关键字：
                 </p>
                 <h5>SELECT</h5>
-                <p>SELECT​ allows us to grab data for specific columns from the database:</p>
+                <p>SELECT 让我们取出指定的列：</p>
                 <ul>
                     <li>
-                        *​ (asterisk): it is used after ​SELECT​ to grab all columns from the table;
+                        *（星号）：跟在 SELECT 后面，表示取出表里所有列；
                     </li>
                     <li>
-                        column_name(s): to select specific columns, put the names of the columns after SELECT​ and use commas to separate them.
+                        列名：想取特定列，就把列名写在 SELECT 后面，用逗号隔开。
                     </li>
                 </ul>
                 <h5>FROM</h5>
-                <p>FROM​ allows us to specify which table(s) we care about; to select multiple tables, list the table names and use commas to separate them. (But until you learn the JOIN keyword, you may be surprised at what happens. That will come later.)</p>
+                <p>FROM 用来指定我们关心哪张（或哪几张）表；要选多张表，就把表名列出来，用逗号隔开。（不过在学 JOIN 关键字之前，你可能会对结果感到意外——那是后面的事。）</p>
 
                 <h5>WHERE</h5>
-                <p>The ​WHERE​ clause in a query is used to filter results by specific criteria.</p>
-                <p>Let's try some of these things.</p>
-                <sql-exercise data-question="Here's a simple query to get everything about a specific person. (Don't worry&mdash;all of the SSNs are made up.) " data-comment="Note that you need to use single straight quotes (') around literal text so the database can tell it apart from table and column names. After you run it, try again with Yessenia Fossen, Ted Denfip or Davina Gangwer."
+                <p>查询里的 WHERE 子句用来按具体条件筛选结果。</p>
+                <p>动手试几条。</p>
+                <sql-exercise data-question="下面这条简单查询，能取出某个人的全部信息。（放心——社保号全是编的。）" data-comment="注意：字面文本要用单引号（'）括起来，数据库才分得清它和表名、列名。跑完之后，把名字换成 Yessenia Fossen、Ted Denfip 或 Davina Gangwer 再试试。"
                     data-default-text="SELECT * FROM person WHERE name = 'Kinsey Erickson'"></sql-exercise>
 
-                <p>The ​AND​ keyword is used to string together multiple filtering criteria so that the filtered results meet each and every one of the criteria. (There's also an OR keyword, which returns rows that match any of the criteria.)
+                <p>AND 关键字用来把多个筛选条件串起来，结果必须同时满足每一个条件。（还有 OR 关键字，只要满足其中任意一个条件，那一行就会被返回。）
                 </p>
 
-                <sql-exercise data-question="This query only returns reports about a specific type of crime in a specific city." data-comment=" Notice that when querying for text values, you must match the data as it is in the database. Try changing 'Chicago' to 'chicago' and running the statement. Then, see if you can edit this SQL statement to find the first clue based on the prompt above."
-                    data-default-text="SELECT * FROM crime_scene_report 
+                <sql-exercise data-question="这条查询只会返回某个城市里某一类案件的报告。" data-comment="注意：查文本值时，写法必须与数据库里的数据完全一致。试着把 'Chicago' 改成 'chicago' 跑一次。然后看看你能不能改写这条语句，按上面提示找出第一条线索。" data-default-text="SELECT * FROM crime_scene_report 
 WHERE type = 'theft' 
 AND city = 'Chicago';" data-solution="SELECT * FROM crime_scene_report 
 WHERE type = 'murder' 
 AND city = 'SQL City';"></sql-exercise>
 
-                <p>If you haven't found the right crime scene report yet, click "show solution" above, and replace the contents of the box with just the revealed command. (Leave out the initial <code>/*</code>) If you figured out the query that shows the
-                    single crime scene report instead of a few for the same city and type, then congratulations and disregard the word "incorrect". You'll know if you got it!
+                <p>如果还没找到对的那份案情报告，就点上面的「显示答案」，把框里的内容换成它给出的命令（去掉开头的 <code>/*</code>）。如果你写出的查询正好只返回那一份案情报告，而不是同城同类案子的好几份，那么恭喜你——请忽略那个「不正确」。你自己心里有数。
                 </p>
 
-                <h4 id='wildcards'>Wildcards and other functions for partial matches</h4>
+                <h4 id='wildcards'>通配符与其他模糊匹配</h4>
 
-                <p>Sometimes you only know part of the information you need. SQL can handle that. Special symbols that represent unknown characters are called "wildcards," and SQL supports two. The most common is the <code>%</code> wildcard.
+                <p>有时你只知道所需信息的一部分，SQL 照样能应付。代表未知字符的特殊符号叫「通配符」，SQL 支持两种。最常用的是 <code>%</code>。
                 </p>
-                <p>When you place a <code>%</code> wildcard in a query string, the SQL system will return results that match the rest of the string exactly, and have anything (or nothing) where the wildcard is. For example,
-                    <code>'Ca%a'</code> matches <code>Canada</code> and <code>California</code>.</p>
-                <p>The other, less commonly used wildcard, is <code>_</code>. This one means 'match the rest of the text, as long as there's exactly one character in exactly the position of the <code>_</code>, no matter what it is. So,
-                    <code>'B_b'</code> would match <code>'Bob'</code> and <code>'Bub'</code> but not <code>'Babe'</code> or
-                    <code>'Bb'</code>.</p>
-                <p><strong>Important:</strong> When using wildcards, you don't use the <code>=</code> symbol; instead, you use
-                    <code>LIKE</code>.
+                <p>在查询字符串里放一个 <code>%</code>，SQL 就会返回这样的结果：除了通配符所在的位置可以是任意内容（或者什么都没有）之外，其余部分完全匹配。例如，
+                    <code>'Ca%a'</code> 能匹配 <code>Canada</code> 和 <code>California</code>。</p>
+                <p>另一种通配符用得少一些，是 <code>_</code>，意思是：只要 <code>_</code> 那个位置恰好有且只有一个字符（不管是什么字符），文本其余部分匹配即可。所以
+                    <code>'B_b'</code> 能匹配 <code>'Bob'</code> 和 <code>'Bub'</code>，但匹配不到 <code>'Babe'</code> 或
+                    <code>'Bb'</code>。</p>
+                <p><strong>重要：</strong>用通配符时不要用 <code>=</code>，要用
+                    <code>LIKE</code>。
                 </p>
 
-                <sql-exercise data-question="Try out some wildcards." data-comment="Once you run this command, try variations like 'Irvin_' and 'I%e' -- and then explore some more." data-default-text="SELECT DISTINCT city 
+                <sql-exercise data-question="试试通配符。" data-comment="跑完这条之后，试试 'Irvin_' 和 'I%e' 这类变体，再自己多探索一下。" data-default-text="SELECT DISTINCT city 
 FROM crime_scene_report 
 WHERE city LIKE 'I%';"></sql-exercise>
 
-                <p>SQL also supports numeric comparisons like <code>&lt;</code> (less than) and <code>&gt;</code> (greater than). You can also use the keywords <code>BETWEEN</code> and <code>AND</code> -- and all of those work with words as well as numbers.
-
+                <p>SQL 也支持数值比较，比如 <code>&lt;</code>（小于）和 <code>&gt;</code>（大于）。你还可以用 <code>BETWEEN</code> 和 <code>AND</code>——这些对文字同样有效。
                 </p>
 
 
-                <sql-exercise data-question="Try out some comparison operators." data-comment="" data-default-text="SELECT DISTINCT city 
+                <sql-exercise data-question="试试比较运算符。" data-comment="" data-default-text="SELECT DISTINCT city 
 FROM crime_scene_report 
 WHERE city BETWEEN 'W%' AND 'Z%';"></sql-exercise>
 
-                <p>We've mentioned that SQL commands are not case-sensitive, but <code>WHERE</code> query values for
-                    <code>=</code> and <code>LIKE</code> are. Sometimes you don't know how the text is stored in the database. SQL provides a couple of functions which can smooth that out for you. They're called <code>UPPER()</code> and
-                    <code>LOWER()</code>, and you can probably figure out what they do, especially if you explore in the box below.
+                <p>前面说过 SQL 命令不区分大小写，但 <code>WHERE</code> 里配合 <code>=</code> 和 <code>LIKE</code> 使用的取值是区分大小写的。有时你并不知道文本在数据库里到底是怎样存的。SQL 提供了几个函数来抹平这种差别，叫 <code>UPPER()</code> 和 <code>LOWER()</code>——看名字大致就能猜到它们干什么，尤其在下面这个框里试一试之后。
                 </p>
 
-                <sql-exercise data-question="Try out UPPER() and LOWER()." data-comment="" data-default-text="SELECT DISTINCT city 
+                <sql-exercise data-question="试试 UPPER() 和 LOWER()。" data-comment="" data-default-text="SELECT DISTINCT city 
 FROM crime_scene_report 
 WHERE LOWER(city) ='sql city';"></sql-exercise>
 
@@ -308,68 +264,65 @@ WHERE LOWER(city) ='sql city';"></sql-exercise>
 
         <div id="credits" class="grid">
             <div class="grid-item">
-                <h2>Digging deeper</h2>
+                <h2>再深挖一点</h2>
 
-                <h3>SQL Aggregate Functions</h3>
+                <h3>SQL 聚合函数</h3>
                 <p>
-                    Sometimes the questions you want to ask aren’t as simple as finding the row of data that fits a set of criteria. You may want to ask more complex questions such as “Who is the oldest person?” or “Who is the shortest person?” <em>Aggregate functions</em>                    can help you answer these questions. In fact, you learned an aggregate function above, <code>COUNT</code>.
+                    有时你想问的问题没那么简单，不是「找出符合条件的那一行」就完事。你可能会问「谁年纪最大？」「谁最矮？」这类更复杂的问题。<em>聚合函数</em>能帮你回答。其实上面你已经学过一个了：<code>COUNT</code>。
                 </p>
                 <p>
-                    How old is the oldest person with a drivers license? With a small amount of data, you might be able to just eyeball it, but there thousands of records in the <code>drivers_license</code> table. (Try <code>COUNT</code> if you want to
-                    know just how many!) You can't just look over that list to find the answer.
+                    有驾照的人里，年纪最大的是多大？数据量小的时候，肉眼扫一眼也就出来了；可 <code>drivers_license</code> 表里有几千条记录。（想知道到底有多少，用 <code>COUNT</code> 试试！）光盯着列表是找不到答案的。
                 </p>
-                <p>Here are a few useful aggregate functions SQL provides:
+                <p>SQL 提供几个好用的聚合函数：
 
                     <dl>
                         <dt>
               MAX
             </dt>
                         <dd>
-                            finds the maximum value
+                            求最大值
                         </dd>
                         <dt>
               MIN
             </dt>
                         <dd>
-                            finds the minimum value
+                            求最小值
                         </dd>
                         <dt>
               SUM
             </dt>
                         <dd>
-                            calculates the sum of the specified column values
+                            计算指定列的数值之和
                         </dd>
                         <dt>
               AVG
             </dt>
                         <dd>
-                            calculates the average of the specified column values
+                            计算指定列的数值平均值
                         </dd>
                         <dt>
-              COUNT​
+              COUNT
             </dt>
                         <dd>
-                            counts the number of specified column values
+                            统计指定列的取值个数
                         </dd>
                     </dl>
                 </p>
-                <sql-exercise data-question="Run this query, then try some of the other aggregate functions." data-comment="" data-default-text="SELECT max(age) FROM drivers_license;"></sql-exercise>
+                <sql-exercise data-question="跑一下这条查询，再试试其他聚合函数。" data-comment="" data-default-text="SELECT max(age) FROM drivers_license;"></sql-exercise>
 
-                <p>There's another way to find minimum and maximum values, while also seeing more of the data. You can control the sort order of results you get. It's really quite intuitive: just use <code>ORDER BY</code> followed by a column name. It can
-                    be challenging when there's a lot of data! (When people get serious about working with SQL, they use better tools than this web-based system.) By default, ORDER BY goes in "ascending" (smallest to largest, or A to Z) order, but you
-                    can be specific with <code>ASC</code> for ascending, or you can reverse it with <code>DESC</code>.
+                <p>找最小值和最大值还有另一种办法，而且能顺带看到更多数据：你可以控制结果的排序。这很直观——用 <code>ORDER BY</code> 加上列名就行。数据一多就有点难办了！（人们认真做 SQL 的时候会用比这个网页系统更好的工具。）默认情况下 ORDER BY 按「升序」排列（从小到大，或从 A 到 Z），你也可以明确写 <code>ASC</code> 表示升序，或者用 <code>DESC</code> 反过来。
                 </p>
-                <sql-exercise data-question="Run this query to see how to control sort order." data-comment="After you've run it, change ASC to DESC, or take that part out completely to see how the results differ. Try sorting on other columns." data-default-text="SELECT * FROM drivers_license ORDER BY age ASC LIMIT 10"></sql-exercise>
+                <sql-exercise data-question="跑这条查询，看看怎么控制排序。" data-comment="跑完之后，把 ASC 改成 DESC，或者干脆删掉这一段，看看结果有什么不同。再试试按别的列排序。" data-default-text="SELECT * FROM drivers_license ORDER BY age ASC LIMIT 10"></sql-exercise>
 
-                <p>By now, you know enough SQL to identify the two witnesses. Give it a try!</p>
-                <sql-exercise data-question="Write a query that identifies the first witness." data-comment="There's more than one way to do it, so you may learn the answer even if the results say 'Incorrect'" data-default-text="
+                <p>到这里，你掌握的 SQL 已经够你找出那两位目击者了。动手试试！</p>
+                <sql-exercise data-question="写一条查询，找出第一位目击者。" data-comment="做法不止一种，所以即使结果显示「不正确」，你可能也已经得到答案了。" data-default-text="
 
 
 " data-solution="SELECT * FROM person 
 WHERE address_street_name = 'Northwestern Dr' 
 ORDER BY address_number DESC LIMIT 1;"></sql-exercise>
 
-                <sql-exercise data-question="Write a query that identifies the second witness." data-comment="There's more than one way to do it, so you may learn the answer even if the results say 'Incorrect'" data-default-text="
+                <sql-exercise data-question="写一条查询，找出第二位目击者。" data-comment="做法不止一种，所以即使结果显示「不正确」，你可能也已经得到答案了。" data-default-text="
 
 
 " data-solution="SELECT * FROM person 
@@ -381,31 +334,27 @@ AND address_street_name = 'Franklin Ave';"></sql-exercise>
 
         <div id="joins" class="grid">
             <div class="grid-item">
-                <h2>Making connections</h2>
+                <h2>把数据连起来</h2>
 
-                <h3>Joining tables</h3>
-                <p>Until now, we’ve been asking questions that can be answered by considering data from only a single table. But what if we need to ask more complex questions that simultaneously require data from two different tables? That’s where ​JOIN​ comes in.</p>
+                <h3>连接表</h3>
+                <p>到目前为止，我们要问的问题都只看一张表就能回答。但如果一个问题需要同时用到两张表的数据呢？这就要靠 JOIN 了。</p>
 
-                <p>More experienced SQL folks use a few different kinds of JOIN -- you may hear about INNER, OUTER, LEFT and RIGHT joins. Here, we'll just talk about the most common kind of JOIN, the INNER JOIN. Since it's common, you can leave out INNER
-                    in your SQL commands.</p>
+                <p>资深的 SQL 玩家会用几种不同的 JOIN——你可能听过 INNER、OUTER、LEFT、RIGHT。这里只讲最常见的一种：INNER JOIN。因为它太常见，写 SQL 的时候可以把 INNER 省掉。</p>
 
                 <p>
-                    The most common way to join tables is using primary key and foreign key columns. Refer back to the Entity Relationship Diagram (ERD) above if you don't remember what those are, or to see the key relationships between tables in our database. You can do
-                    joins on any columns, but the key columns are optimized for fast results. It is probably easier to show how joins work with our interactive SQL system than to write them.
+                    最常见的连接方式是用主键和外键。记不清这是什么，或者想看看本数据库里各表之间的键关系，就回头翻上面的 ERD。其实任意列都能做连接，但键列针对快速返回做了优化。用这个交互式 SQL 系统演示，比讲文字更清楚。
                 </p>
 
-                <sql-exercise data-question="Run this query to identify the biggest annual earners in our database. (Again, trust us, the SSNs are all made up.)" data-comment="Try editing the query to return more data, or to find people with different incomes. Try joining other tables together. You can use * in between SELECT and FROM here like with any other query, so try that too."
-                    data-default-text="SELECT person.name, income.annual_income 
+                <sql-exercise data-question="跑这条查询，找出本数据库里年收入最高的人。（再说一次，社保号全是编的。）" data-comment="试着改查询取回更多数据，或者找出收入不同的人。再试着连接别的表。这里跟其他查询一样，可以在 SELECT 和 FROM 之间写 *，不妨试试。" data-default-text="SELECT person.name, income.annual_income 
 FROM income 
 JOIN person 
   ON income.ssn = person.ssn 
 WHERE annual_income > 450000"></sql-exercise>
 
-                <p>Sometimes you want to connect more than one table. SQL lets you join as many tables in a query as you like.
+                <p>有时你想连的不止两张表。SQL 允许你在一条查询里连多少张表都行。
                 </p>
 
-                <sql-exercise data-question="Let's see if big earners have other characteristics in common." data-comment="This example shows how to join more than one table. It also, incidentally, shows how you can use 'aliases' for the various tables in your query so that you don't have to type as much. Finally, it shows how you can change how a column name shows up in the results, which can be handy."
-                    data-default-text="SELECT name, annual_income as income, 
+                <sql-exercise data-question="看看高收入者有没有别的共同点。" data-comment="这个例子演示了怎么连多张表。顺便也演示了怎么给查询里的表起「别名」以少打字，以及怎么改结果里列名的显示方式——这些都很实用。" data-default-text="SELECT name, annual_income as income, 
 gender, eye_color as eyes, hair_color as hair
 FROM income i
 JOIN person p
@@ -415,10 +364,9 @@ JOIN drivers_license dl
 WHERE annual_income > 450000"></sql-exercise>
 
 
-                <p>Now that you know how to join tables, you should be able to find the interview transcripts for the two witnesses you identified before. Give it a try!</p>
+                <p>现在你会连表了，应该能把你前面找到的两位目击者的访谈记录翻出来。动手试试！</p>
 
-                <sql-exercise data-question="Write a query that shows the interview transcripts for our two subjects." data-comment="There's more than one way to do it, so you may learn the answer even if the results say 'Incorrect'. The official solution does it in one query, but you don't have to. Technically you don't even need to use a JOIN to get the transcripts, but give it a try."
-                    data-default-text="
+                <sql-exercise data-question="写一条查询，显示这两位对象的访谈记录。" data-comment="做法不止一种，所以即使结果显示「不正确」，你可能也已经得到答案了。官方答案用一条查询解决，但你不用照做。严格来说，取访谈记录甚至不用 JOIN，不过还是试试吧。" data-default-text="
 
 
 " data-solution="SELECT person.name, interview.transcript
@@ -432,12 +380,11 @@ WHERE person.id = 14887 OR person.id = 16371;"></sql-exercise>
 
         <div id="go-get-em" class="grid">
             <div class="grid-item">
-                <h3>Go Get 'em!</h3>
+                <h3>去拿下它！</h3>
                 <p>
-                    Now you know enough SQL to solve the mystery. You'll need to read the ERD and make some reasonable assumptions, but there's no other syntax that you need!
+                    现在你掌握的 SQL 已经够破案了。你需要读懂 ERD，做几个合理的推断，除此之外不需要别的语法！
                 </p>
-                <sql-exercise data-question="Find the murderer!" data-comment="It will take more than one query to find the killer, but you can just keep editing this box, keeping notes on your results along the way. When you think you know the answer, go to the next section."
-                    data-default-text="
+                <sql-exercise data-question="找出凶手！" data-comment="要找到凶手不止一条查询，你可以一直在这个框里改，随手记下沿途的结果。觉得有答案了，就去下一节。" data-default-text="
 
 
 "></sql-exercise>
@@ -447,8 +394,8 @@ WHERE person.id = 14887 OR person.id = 16371;"></sql-exercise>
 
         <div class="grid">
             <div class="grid-item">
-                <h3>Check your solution</h3>
-                <sql-exercise data-question="Did you find the killer?" data-comment="" data-default-text="INSERT INTO solution VALUES (1, 'Insert the name of the person you found here');
+                <h3>验证你的答案</h3>
+                <sql-exercise data-question="找到凶手了吗？" data-comment="" data-default-text="INSERT INTO solution VALUES (1, '在这里填写你找到的凶手姓名');
 
 SELECT value FROM solution;"></sql-exercise>
 
@@ -457,16 +404,16 @@ SELECT value FROM solution;"></sql-exercise>
 
         <div id="credits" class="grid">
             <div class="grid-item">
-                <h3>Credits</h3>
-                <p>The SQL Murder Mystery was created by <a href="https://twitter.com/joonparkmusic">Joon Park</a> and <a href="https://twitter.com/Cathy_MeiyingHe">Cathy He</a> while they were Knight Lab fellows. See the <a href="https://github.com/NUKnightLab/sql-mysteries">GitHub repository</a>                    for more information.</p>
-                <p>Adapted and produced for the web by <a href="https://twitter.com/joegermuska">Joe Germuska</a>.</p>
-                <p>This mystery was inspired by <a href="https://github.com/veltman/clmystery">a crime in the neighboring
-            Terminal City.</a></p>
-                <p>Web-based SQL is made possible by <a href="https://github.com/sql-js/sql.js/">SQL.js</a></p>
-                <p>SQL query custom web components created and released to the public domain by Zi Chong Kao, creator of <a href="https://selectstarsql.com/">Select Star SQL.</a></p>
-                <p>Detective illustration courtesy of <a href="https://www.vecteezy.com/">Vectors by Vecteezy</a></p>
-                <p>Original code for this project is released under the <a href="https://github.com/NUKnightLab/sql-mysteries/blob/master/LICENSE">MIT License</a></p>
-                <p>Original text and other content for this project is released under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC BY-SA 4.0</a></p>
+                <h3>致谢</h3>
+                <p>《SQL 谋杀之谜》由 <a href="https://twitter.com/joonparkmusic">Joon Park</a> 与 <a href="https://twitter.com/Cathy_MeiyingHe">Cathy He</a> 在担任 Knight Lab 研究员期间创作。更多信息见 <a href="https://github.com/NUKnightLab/sql-mysteries">GitHub 仓库</a>。</p>
+                <p>网页版由 <a href="https://twitter.com/joegermuska">Joe Germuska</a> 改编制作。</p>
+                <p>本页是非官方中文翻译：界面、教程与案件记录都已译成中文，英文原版见 <a href="https://mystery.knightlab.com/walkthrough.html">mystery.knightlab.com</a>。</p>
+                <p>本案灵感来自 <a href="https://github.com/veltman/clmystery">邻城 Terminal City 的一桩命案</a>。</p>
+                <p>网页版 SQL 由 <a href="https://github.com/sql-js/sql.js/">SQL.js</a> 提供支持。</p>
+                <p>SQL 查询组件由 <a href="https://selectstarsql.com/">Select Star SQL</a> 的作者 Zi Chong Kao 创作并捐入公有领域。</p>
+                <p>侦探插画来自 <a href="https://www.vecteezy.com/">Vecteezy</a>。</p>
+                <p>原项目代码以 <a href="https://github.com/NUKnightLab/sql-mysteries/blob/master/LICENSE">MIT 许可证</a>发布。</p>
+                <p>原项目文本及其他内容以 <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC BY-SA 4.0</a> 发布。</p>
             </div>
         </div>
     </div>
@@ -476,7 +423,7 @@ SELECT value FROM solution;"></sql-exercise>
             <div class='grid grid-center'>
                 <div class='column-2 column-4-phone column-4-tablet'>
                     <a href="http://knightlab.northwestern.edu" target="_blank">
-                        <img src="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/logo-knightlab-stacked-dark-small.png" style="margin-left:auto;">
+                        <img src="vendor/logo-knightlab-stacked-dark-small.png" style="margin-left:auto;">
                     </a>
                     <ul class="list--social text-align-center">
                         <li><a class="link--no-style" href="http://www.twitter.com/knightlab" target="_blank" title="Knight Lab on Twitter"><span class="icon-twitter"></span></a></li>
@@ -486,19 +433,18 @@ SELECT value FROM solution;"></sql-exercise>
                 </div>
                 <div class='column-4 column-5-tablet column-6-phone footer-description'>
                     <p>
-                        The <a title="Northwestern University" href="http://www.northwestern.edu/" target="_blank">Northwestern
-              University</a> Knight Lab is a team of technologists and journalists working at advancing news media innovation through exploration and experimentation.
+                        <a title="Northwestern University" href="http://www.northwestern.edu/" target="_blank">西北大学</a> Knight Lab 由一群技术专家与记者组成，通过探索与实验推动新闻媒体创新。
                     </p>
                     <div class="grid-size-2 grid-size-2-phone">
                         <div class="grid-item">
                             <a title="Medill School of Journalism, Media, Integrated Marketing Communications" href="http://www.medill.northwestern.edu/" target="_blank">
-                                <img src="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/logo-medill-dark.png">
+                                <img src="vendor/logo-medill-dark.png">
                             </a>
                         </div>
 
                         <div class="grid-item">
                             <a title="McCormick School of Engineering" href="http://www.mccormick.northwestern.edu/" target="_blank">
-                                <img src="https://cdn.knightlab.com/libs/orangeline/0.1.1/assets/logo-mccormick-dark.png">
+                                <img src="vendor/logo-mccormick-dark.png">
                             </a>
                         </div>
                     </div>
@@ -519,11 +465,11 @@ SELECT value FROM solution;"></sql-exercise>
                   itemprop="postal-code">60208 </span>
                 <span style="display:none;" itemprop="geo" itemscope="" itemtype="http://www.data-vocabulary.org/Geo/"
                   class="geo">
-                  Latitude: <span itemprop="latitude">42.056893</span><br>Longitude:
+                Latitude: <span itemprop="latitude">42.056893</span><br>Longitude:
                   <span itemprop="longitude">-87.676735</span>
                 </span>
                 <a style="display:none;" href="http://knightlab.northwestern.edu" itemprop="url" class="url">Northwesten
-                  University Knight Lab | Advancing media innovation through exploration and experimentation.</a>
+                  University Knight Lab | Advancing news media innovation through exploration and experimentation.</a>
               </div>
             </span>
           </address>
@@ -533,7 +479,7 @@ SELECT value FROM solution;"></sql-exercise>
         </div>
     </footer>
 
-    <script src="https://cdn.knightlab.com/libs/orangeline/0.1.1/js/orangeline.js"></script>
+    <script src="vendor/orangeline.js"></script>
 
 </body>
 

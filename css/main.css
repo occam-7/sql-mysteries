@@ -134,3 +134,15 @@ sql-exercise .sqlExInputArea input {
 #experienced-schema.show {
     display: block;
 }
+
+/* 中文版：orangeline 只带西文字体，追加中文回退栈，并放宽行高 */
+body {
+    font-family: Roboto, "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    line-height: 1.75;
+}
+
+.datatable,
+.datatable td,
+.datatable th {
+    line-height: 1.5;
+}
